@@ -5,12 +5,12 @@ using MySql.Data.MySqlClient;
 
 namespace Login
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
 
         static MySqlConnection? connection;
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
             connection = Connection.Init();
@@ -34,12 +34,10 @@ namespace Login
 
                 if (!string.IsNullOrEmpty(userTextBox.Text) && !string.IsNullOrEmpty(passwordTextBox.Text))
                 {
-
-                    //Util.OutgoingError(SqlQuery.VerifyLogin(connection, userTextBox.Text, passwordTextBox.Text).ToString());
-
                     if (SqlQuery.VerifyLogin(connection, userTextBox.Text, passwordTextBox.Text))
                     {
-                        Util.DebugLabel(loginDebugLabel, "Login certo");
+                        // Caso use o projeto, use sua criatividade aqui!
+                        Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso");
                     }
                     else
                     {
@@ -47,6 +45,14 @@ namespace Login
                     }
                 }
             }
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            RegisterForm form = new RegisterForm();
+
+            form.Show();
+            this.Hide();
         }
 
         private void userTextBox_TextChanged(object sender, EventArgs e)

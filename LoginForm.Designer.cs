@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             pictureBox1 = new PictureBox();
             backgroundPictureBox = new PictureBox();
             loginPictureBox = new PictureBox();
@@ -39,6 +39,7 @@
             userDebugLabel = new Label();
             passwordDebugLabel = new Label();
             loginDebugLabel = new Label();
+            registerButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)loginPictureBox).BeginInit();
@@ -129,7 +130,7 @@
             userDebugLabel.Font = new Font("Bahnschrift Condensed", 10F);
             userDebugLabel.Location = new Point(165, 196);
             userDebugLabel.Name = "userDebugLabel";
-            userDebugLabel.Size = new Size(0, 14);
+            userDebugLabel.Size = new Size(0, 17);
             userDebugLabel.TabIndex = 14;
             userDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -139,7 +140,7 @@
             passwordDebugLabel.Font = new Font("Bahnschrift Condensed", 10F);
             passwordDebugLabel.Location = new Point(165, 247);
             passwordDebugLabel.Name = "passwordDebugLabel";
-            passwordDebugLabel.Size = new Size(0, 14);
+            passwordDebugLabel.Size = new Size(0, 17);
             passwordDebugLabel.TabIndex = 15;
             passwordDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -149,15 +150,27 @@
             loginDebugLabel.Font = new Font("Bahnschrift Condensed", 10F);
             loginDebugLabel.Location = new Point(88, 310);
             loginDebugLabel.Name = "loginDebugLabel";
-            loginDebugLabel.Size = new Size(0, 14);
+            loginDebugLabel.Size = new Size(0, 17);
             loginDebugLabel.TabIndex = 16;
             loginDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // registerButton
+            // 
+            registerButton.Font = new Font("Segoe UI", 7F);
+            registerButton.Location = new Point(207, 309);
+            registerButton.Name = "registerButton";
+            registerButton.Size = new Size(48, 21);
+            registerButton.TabIndex = 17;
+            registerButton.Text = "Registro";
+            registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += this.registerButton_Click;
+            // 
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(457, 411);
+            Controls.Add(registerButton);
             Controls.Add(loginDebugLabel);
             Controls.Add(passwordDebugLabel);
             Controls.Add(userDebugLabel);
@@ -170,7 +183,7 @@
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -192,5 +205,6 @@
         private Label userDebugLabel;
         private Label passwordDebugLabel;
         private Label loginDebugLabel;
+        private Button registerButton;
     }
 }
