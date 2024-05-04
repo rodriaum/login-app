@@ -1,35 +1,30 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Login.util;
+using MySql.Data.MySqlClient;
 
 namespace Login.backend
 {
     internal class Connection
     {
-        public MySqlConnection MySqlConnection { get; private set; }
 
-        public Connection(string database, string user, string password)
+        public static MySqlConnection Init(string databaseName, string user, string password)
         {
-            Console.WriteLine("Tentando conexão...");
-
-            MySqlConnection = new MySqlConnection($"Server=127.0.0.1;database={database};uid={user};pwd={password};");
+            MySqlConnection connection = new MySqlConnection($"Server=127.0.0.1;Database={databaseName};Uid={user};Pwd={password};");
 
             try
             {
-                MySqlConnection.Open();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Não foi possível estabelecer a conexão: " + e.Message);
-            }
-
-            if (MySqlConnection.State == System.Data.ConnectionState.Open)
-            {
-                Console.WriteLine("Conexão estabelecida com sucesso.");
-            } 
-            else
-            {
-                Console.WriteLine("Não foi possível abrir a conexão.");
+                connection.Open();
 
             }
+            catch (Exception ex)
+            {
+                Util.OutgoingError("Erro: " + ex.Message);
+
+            }
+
+            return connection;
         }
+
+        public static MySqlConnection Init() => Init("application", "root", "");
     }
 }
+
