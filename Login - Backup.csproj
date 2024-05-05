@@ -12,12 +12,15 @@
     <Compile Remove="NovaPasta1\**" />
     <Compile Remove="NovaPasta2\**" />
     <Compile Remove="NovaPasta3\**" />
+    <Compile Remove="NovaPasta\**" />
     <EmbeddedResource Remove="NovaPasta1\**" />
     <EmbeddedResource Remove="NovaPasta2\**" />
     <EmbeddedResource Remove="NovaPasta3\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
     <None Remove="NovaPasta1\**" />
     <None Remove="NovaPasta2\**" />
     <None Remove="NovaPasta3\**" />
+    <None Remove="NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +40,6 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.4.0" />
-    <PackageReference Include="MySqlConnector" Version="2.3.7" />
   </ItemGroup>
 
 </Project>

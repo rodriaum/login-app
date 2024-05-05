@@ -1,49 +1,53 @@
 ﻿using Login.backend;
 using Login.backend.query;
 using Login.util;
-using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Login
 {
     public partial class LoginForm : Form
     {
 
-        static MySqlConnection? connection;
-
         public LoginForm()
         {
             InitializeComponent();
-            connection = Connection.Init();
+            Connection.Init();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             Button button = loginButton;
-
-            if (button != null && connection != null)
+            if (button != null && Connection.MySqlConnection != null)
             {
-                if (string.IsNullOrEmpty(userTextBox.Text))
+                string email = userTextBox.Text;
+                string password = passwordTextBox.Text;
+
+                if (string.IsNullOrEmpty(email) && !email.Contains("@"))
                 {
                     Util.DebugLabel(userDebugLabel, "Insira um e-mail válido.");
                 }
 
-                if (string.IsNullOrEmpty(passwordTextBox.Text))
+                if (string.IsNullOrEmpty(password))
                 {
                     Util.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
                 }
 
-                if (!string.IsNullOrEmpty(userTextBox.Text) && !string.IsNullOrEmpty(passwordTextBox.Text))
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
                 {
-                    if (SqlQuery.VerifyLogin(connection, userTextBox.Text, passwordTextBox.Text))
+                    if (SqlQuery.VerifyLogin(Connection.MySqlConnection, email, password))
                     {
                         // Caso use o projeto, use sua criatividade aqui!
-                        Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso");
+                        Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
                     }
                     else
                     {
                         Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto ou não existe registro.");
                     }
                 }
+            } 
+            else
+            {
+                Util.OutgoingError("Botão ou conexão com o banco de dados nulo.");
             }
         }
 

@@ -1,10 +1,12 @@
 ﻿using Login.util;
 using MySql.Data.MySqlClient;
+using System.Runtime.CompilerServices;
 
 namespace Login.backend
 {
     internal class Connection
     {
+        public static MySqlConnection? MySqlConnection;
 
         public static MySqlConnection Init(string databaseName, string user, string password)
         {
@@ -18,8 +20,10 @@ namespace Login.backend
             catch (Exception ex)
             {
                 Util.OutgoingError("Erro: " + ex.Message);
-
+                Application.Exit();
             }
+
+            MySqlConnection = connection;
 
             return connection;
         }

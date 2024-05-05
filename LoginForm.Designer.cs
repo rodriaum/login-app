@@ -104,7 +104,7 @@
             loginButton.BackgroundImageLayout = ImageLayout.None;
             loginButton.FlatStyle = FlatStyle.Popup;
             loginButton.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginButton.ForeColor = Color.Silver;
+            loginButton.ForeColor = SystemColors.Menu;
             loginButton.Location = new Point(121, 265);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(222, 42);
@@ -148,7 +148,7 @@
             // 
             loginDebugLabel.AutoSize = true;
             loginDebugLabel.Font = new Font("Bahnschrift Condensed", 10F);
-            loginDebugLabel.Location = new Point(88, 310);
+            loginDebugLabel.Location = new Point(88, 330);
             loginDebugLabel.Name = "loginDebugLabel";
             loginDebugLabel.Size = new Size(0, 17);
             loginDebugLabel.TabIndex = 16;
@@ -156,14 +156,16 @@
             // 
             // registerButton
             // 
+            registerButton.BackColor = SystemColors.Menu;
+            registerButton.FlatStyle = FlatStyle.Flat;
             registerButton.Font = new Font("Segoe UI", 7F);
-            registerButton.Location = new Point(207, 309);
+            registerButton.Location = new Point(121, 306);
             registerButton.Name = "registerButton";
-            registerButton.Size = new Size(48, 21);
+            registerButton.Size = new Size(222, 21);
             registerButton.TabIndex = 17;
             registerButton.Text = "Registro";
-            registerButton.UseVisualStyleBackColor = true;
-            registerButton.Click += this.registerButton_Click;
+            registerButton.UseVisualStyleBackColor = false;
+            registerButton.Click += registerButton_Click;
             // 
             // LoginForm
             // 

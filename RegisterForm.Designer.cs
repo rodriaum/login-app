@@ -100,7 +100,7 @@
             registerButton.BackgroundImageLayout = ImageLayout.None;
             registerButton.FlatStyle = FlatStyle.Popup;
             registerButton.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            registerButton.ForeColor = Color.Gainsboro;
+            registerButton.ForeColor = SystemColors.Menu;
             registerButton.Image = (Image)resources.GetObject("registerButton.Image");
             registerButton.Location = new Point(121, 265);
             registerButton.Name = "registerButton";
@@ -108,6 +108,7 @@
             registerButton.TabIndex = 8;
             registerButton.Text = "Registro";
             registerButton.UseVisualStyleBackColor = false;
+            registerButton.Click += registerButton_Click;
             // 
             // registerLabel
             // 
