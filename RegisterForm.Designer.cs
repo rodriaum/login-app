@@ -110,6 +110,19 @@
             registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += registerButton_Click;
             // 
+            // returnButton
+            // 
+            returnButton.BackColor = SystemColors.Menu;
+            returnButton.FlatStyle = FlatStyle.Flat;
+            returnButton.Font = new Font("Segoe UI", 7F);
+            returnButton.Location = new Point(121, 306);
+            returnButton.Name = "returnButton";
+            returnButton.Size = new Size(222, 21);
+            returnButton.TabIndex = 17;
+            returnButton.Text = "Voltar para Login";
+            returnButton.UseVisualStyleBackColor = false;
+            returnButton.Click += registerButton_Click;
+            // 
             // registerLabel
             // 
             registerLabel.AutoSize = true;
@@ -186,6 +199,7 @@
         private TextBox userTextBox;
         private TextBox passwordTextBox;
         private Button registerButton;
+        private Button returnButton;
         private Label loginLabel;
         private Label userDebugLabel;
         private Label passwordDebugLabel;

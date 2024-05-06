@@ -17,6 +17,7 @@ namespace Login
         private void loginButton_Click(object sender, EventArgs e)
         {
             Button button = loginButton;
+
             if (button != null && Connection.MySqlConnection != null)
             {
                 string email = userTextBox.Text;
@@ -34,14 +35,24 @@ namespace Login
 
                 if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
                 {
-                    if (SqlQuery.VerifyLogin(Connection.MySqlConnection, email, password))
+
+                    if (SqlQuery.HasConfirmedEmail(Connection.MySqlConnection, email))
                     {
-                        // Caso use o projeto, use sua criatividade aqui!
-                        Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
-                    }
+
+                        if (SqlQuery.VerifyLogin(Connection.MySqlConnection, email, password))
+                        {
+                            // Caso use o projeto, use sua criatividade aqui!
+                            Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
+                        }
+                        else
+                        {
+                            Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto ou não existe registro.");
+                        }
+
+                    } 
                     else
                     {
-                        Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto ou não existe registro.");
+                        // Enviar para tela de confirmação.
                     }
                 }
             } 

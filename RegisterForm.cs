@@ -39,7 +39,7 @@ namespace Login
                     else
                     {
                         // Enviar para confirmar via email
-                        // SqlQuery.CreateLogin(Connection.MySqlConnection, email, password);
+                        SqlQuery.CreateLogin(Connection.MySqlConnection, email, password);
                     }
                 }
             } 
