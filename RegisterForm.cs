@@ -22,7 +22,7 @@ namespace Login
                 string email = userTextBox.Text;
                 string password = passwordTextBox.Text;
 
-                if (string.IsNullOrEmpty(email) && !email.Contains("@"))
+                if (string.IsNullOrEmpty(email) || !email.Contains("@"))
                 {
                     Util.DebugLabel(userDebugLabel, "Insira um e-mail válido.");
                 }
@@ -32,7 +32,7 @@ namespace Login
                     Util.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
                 }
 
-                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Contains("@"))
                 {
                     if (SqlQuery.HasLogin(connection, email))
                     {
@@ -53,11 +53,17 @@ namespace Login
                         //    "", email, code);
                     }
                 }
-            } 
+            }
             else
             {
                 Util.OutgoingError("Botão ou conexão com o banco de dados nulo.");
             }
+        }
+
+        private void returnButton_Click(object sender, EventArgs e)
+        {
+            new LoginForm().Show();
+            this.Hide();
         }
     }
 }

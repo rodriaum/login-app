@@ -122,7 +122,7 @@
             returnButton.TabIndex = 17;
             returnButton.Text = "Voltar para Login";
             returnButton.UseVisualStyleBackColor = false;
-            returnButton.Click += registerButton_Click;
+            returnButton.Click += returnButton_Click;
             // 
             // registerLabel
             // 

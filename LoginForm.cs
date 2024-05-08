@@ -24,7 +24,7 @@ namespace Login
                 string email = userTextBox.Text;
                 string password = passwordTextBox.Text;
 
-                if (string.IsNullOrEmpty(email) && !email.Contains("@"))
+                if (string.IsNullOrEmpty(email) || !email.Contains("@"))
                 {
                     Util.DebugLabel(userDebugLabel, "Insira um e-mail válido.");
                 }
@@ -34,39 +34,39 @@ namespace Login
                     Util.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
                 }
 
-                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Contains("@"))
                 {
-                    
+
                     if (SqlQuery.HasLogin(connection, email))
                     {
-                        if (SqlQuery.HasConfirmedEmail(connection, email))
+                        if (SqlQuery.VerifyLogin(connection, email, password))
                         {
-                            if (SqlQuery.VerifyLogin(connection, email, password))
+                            if (SqlQuery.HasConfirmedEmail(connection, email))
                             {
                                 // Caso use o projeto, use sua criatividade aqui...
                                 Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
                             }
                             else
                             {
-                                Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto.");
+                                Util.DebugLabel(loginDebugLabel, "Você precisa verificar o e-mail antes de fazer login.");
+
+                                await Task.Delay(2000);
+
+                                new ConfirmEmailForm().Show();
+                                this.Hide();
                             }
                         }
                         else
                         {
-                            Util.DebugLabel(loginDebugLabel, "Você precisa verificar o e-mail antes de fazer login.");
-
-                            await Task.Delay(2000);
-
-                            new ConfirmEmailForm().Show();
-                            this.Hide();
+                            Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto.");
                         }
-                    } 
+                    }
                     else
                     {
                         Util.DebugLabel(loginDebugLabel, "Não existe nenhum login com essas credenciais.");
                     }
                 }
-            } 
+            }
             else
             {
                 Util.OutgoingError("Botão ou conexão com o banco de dados nulo.");

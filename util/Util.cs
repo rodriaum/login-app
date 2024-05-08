@@ -14,6 +14,7 @@
         {
             label.Text = text;
             await Task.Delay(1500);
+            label.Text = "";
         }
     }
 }
