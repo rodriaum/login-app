@@ -5,13 +5,13 @@ namespace Login.backend.query
 {
     internal class SqlQuery
     {
-        public static bool CreateLogin(MySqlConnection connection, string email, string password)
+        public static bool CreateLogin(MySqlConnection connection, string email, string password, string code)
         {
             using (MySqlCommand command = new MySqlCommand("INSERT INTO login (email, password, code, checked) VALUES (@Email, @Password, @Code, @Checked)", connection))
             {
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", password);
-                command.Parameters.AddWithValue("@Code", new Random().Next(100000, 999999));
+                command.Parameters.AddWithValue("@Code", code);
                 command.Parameters.AddWithValue("@Checked", false);
 
                 try
@@ -21,7 +21,7 @@ namespace Login.backend.query
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Criar novo registro.\nErro: " + ex.Message);
                 }
             }
 
@@ -41,13 +41,12 @@ namespace Login.backend.query
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Confirmar o e-mail.\nErro: " + ex.Message);
                 }
             }
 
             return false;
         }
-
 
         public static bool VerifyLogin(MySqlConnection connection, string email, string password)
         {
@@ -65,9 +64,10 @@ namespace Login.backend.query
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Verificar o login.\nErro: " + ex.Message);
                 }
             }
+
             return false;
         }
 
@@ -82,15 +82,12 @@ namespace Login.backend.query
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read() && reader["code"].ToString() == code)
-                        {
-                            ConfirmEmail(connection, email);
                             return true;
-                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Verificar o e-mail de confirmação\nErro: " + ex.Message);
                 }
             }
 
@@ -110,7 +107,7 @@ namespace Login.backend.query
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Verificar se tem login.\nErro: " + ex.Message);
                 }
             }
 
@@ -119,7 +116,7 @@ namespace Login.backend.query
 
         public static bool HasConfirmedEmail(MySqlConnection connection, string email)
         {
-            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM login WHERE email = @Email", connection))
+            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*), checked FROM login WHERE email = @Email", connection))
             {
                 command.Parameters.AddWithValue("@Email", email);
 
@@ -127,13 +124,13 @@ namespace Login.backend.query
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read() && Convert.ToInt16(reader["checked"]) == 1)
-                            return true;
+                        if (reader.Read())
+                            return Convert.ToBoolean(reader["checked"].ToString());
                     }
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Verificar se tem e-mail confirmado.\nErro: " + ex.Message);
                 }
             }
 
@@ -142,7 +139,7 @@ namespace Login.backend.query
 
         public static string GetEmailByConfirmCode(MySqlConnection connection, string code)
         {
-            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM login WHERE code = @Code", connection))
+            using (MySqlCommand command = new MySqlCommand("SELECT email FROM login WHERE code = @Code", connection))
             {
                 command.Parameters.AddWithValue("@Code", code);
 
@@ -156,7 +153,30 @@ namespace Login.backend.query
                 }
                 catch (Exception ex)
                 {
-                    Util.OutgoingError(ex.Message);
+                    Util.OutgoingError("Obter o código de confirmação a partir do e-mail.\nErro: " + ex.Message);
+                }
+            }
+
+            return "";
+        }
+
+        public static string GetConfirmCodeByEmail(MySqlConnection connection, string email)
+        {
+            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM login WHERE email = @Email", connection))
+            {
+                command.Parameters.AddWithValue("@Email", email);
+
+                try
+                {  
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                            return (string)reader["code"];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Util.OutgoingError("Obter o código de confirmação a partir do e-mail.\nErro: " + ex.Message);
                 }
             }
 

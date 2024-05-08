@@ -9,7 +9,7 @@ namespace Login.backend
 
         public static MySqlConnection Init(string databaseName, string user, string password)
         {
-            MySqlConnection connection = new MySqlConnection($"Server=127.0.0.1;Database={databaseName};Uid={user};Pwd={password};");
+            MySqlConnection connection = new MySqlConnection($"Server=127.0.0.1;Database={databaseName};Uid={user};Pwd={password};Pooling=true;");
 
             try
             {
@@ -18,8 +18,7 @@ namespace Login.backend
             }
             catch (Exception ex)
             {
-                Util.OutgoingError("Erro: " + ex.Message);
-                Application.Exit();
+                Util.OutgoingError("Inicialização MySql:\nErro: " + ex.Message);
             }
 
             MySqlConnection = connection;

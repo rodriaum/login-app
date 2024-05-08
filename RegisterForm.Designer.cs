@@ -35,6 +35,7 @@
             userTextBox = new TextBox();
             passwordTextBox = new TextBox();
             registerButton = new Button();
+            returnButton = new Button();
             registerLabel = new Label();
             userDebugLabel = new Label();
             passwordDebugLabel = new Label();
@@ -174,6 +175,7 @@
             Controls.Add(userDebugLabel);
             Controls.Add(registerLabel);
             Controls.Add(registerButton);
+            Controls.Add(returnButton);
             Controls.Add(passwordTextBox);
             Controls.Add(userTextBox);
             Controls.Add(registerPictureBox);

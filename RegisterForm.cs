@@ -1,6 +1,7 @@
 ﻿using Login.backend;
 using Login.backend.query;
 using Login.util;
+using MySql.Data.MySqlClient;
 
 namespace Login
 {
@@ -13,9 +14,10 @@ namespace Login
 
         private void registerButton_Click(object sender, EventArgs e)
         {
+            MySqlConnection? connection = Connection.MySqlConnection;
             Button button = registerButton;
 
-            if (button != null && Connection.MySqlConnection != null)
+            if (button != null && connection != null)
             {
                 string email = userTextBox.Text;
                 string password = passwordTextBox.Text;
@@ -32,14 +34,23 @@ namespace Login
 
                 if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
                 {
-                    if (SqlQuery.HasLogin(Connection.MySqlConnection, email))
+                    if (SqlQuery.HasLogin(connection, email))
                     {
                         Util.DebugLabel(loginDebugLabel, "Parece que esse email já está associado a outro usuário.");
                     }
                     else
                     {
-                        // Enviar para confirmar via email
-                        SqlQuery.CreateLogin(Connection.MySqlConnection, email, password);
+                        new ConfirmEmailForm().Show();
+                        this.Hide();
+
+                        string code = new Random().Next(100000, 999999).ToString();
+
+                        SqlQuery.CreateLogin(connection, email, password, code);
+
+                        // Para o projeto funcionar com o confirmador de e-mail, você precisa adicionar as credenciais.
+                        // SmtpHelper.SendConfirmationEmail(
+                        //    SmtpHelper.Connection("", ""),
+                        //    "", email, code);
                     }
                 }
             } 

@@ -40,13 +40,13 @@ namespace Login.smtp
         public static void Send(SmtpClient client, MailMessage message) => client.Send(message);
 
         // Email Confirmer 
-        public static void SendConfirmationEmail(SmtpClient client, string yourMailAddress, string recipientMailAddress)
+        public static void SendConfirmationEmail(SmtpClient client, string yourMailAddress, string recipientMailAddress, string code)
         {
             Send(client, Message(
                 yourMailAddress,
                 recipientMailAddress,
                 "Código de verificação para Login",
-                $"Introduza o código {new Random().Next(1000, 9999)}. Este código só é válido quando utilizado com o endereço de e-mail que recebeu o código de verificação.",
+                $"Introduza o código {code}. Este código só é válido quando utilizado com o endereço de e-mail que recebeu o código de verificação.",
                 ""
                 ));
         }

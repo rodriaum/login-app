@@ -1,7 +1,7 @@
 ﻿using Login.backend;
 using Login.backend.query;
 using Login.util;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using MySql.Data.MySqlClient;
 
 namespace Login
 {
@@ -14,11 +14,12 @@ namespace Login
             Connection.Init();
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private async void loginButton_Click(object sender, EventArgs e)
         {
+            MySqlConnection? connection = Connection.MySqlConnection;
             Button button = loginButton;
 
-            if (button != null && Connection.MySqlConnection != null)
+            if (button != null && connection != null)
             {
                 string email = userTextBox.Text;
                 string password = passwordTextBox.Text;
@@ -35,24 +36,34 @@ namespace Login
 
                 if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
                 {
-
-                    if (SqlQuery.HasConfirmedEmail(Connection.MySqlConnection, email))
+                    
+                    if (SqlQuery.HasLogin(connection, email))
                     {
-
-                        if (SqlQuery.VerifyLogin(Connection.MySqlConnection, email, password))
+                        if (SqlQuery.HasConfirmedEmail(connection, email))
                         {
-                            // Caso use o projeto, use sua criatividade aqui!
-                            Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
+                            if (SqlQuery.VerifyLogin(connection, email, password))
+                            {
+                                // Caso use o projeto, use sua criatividade aqui...
+                                Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
+                            }
+                            else
+                            {
+                                Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto.");
+                            }
                         }
                         else
                         {
-                            Util.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto ou não existe registro.");
-                        }
+                            Util.DebugLabel(loginDebugLabel, "Você precisa verificar o e-mail antes de fazer login.");
 
+                            await Task.Delay(2000);
+
+                            new ConfirmEmailForm().Show();
+                            this.Hide();
+                        }
                     } 
                     else
                     {
-                        // Enviar para tela de confirmação.
+                        Util.DebugLabel(loginDebugLabel, "Não existe nenhum login com essas credenciais.");
                     }
                 }
             } 

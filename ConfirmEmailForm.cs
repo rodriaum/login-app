@@ -1,19 +1,8 @@
 ﻿using Login.backend.query;
 using Login.backend;
 using Login.util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
-using Login.smtp;
 
 namespace Login
 {
@@ -37,8 +26,6 @@ namespace Login
 
             if (button != null && connection != null)
             {
-                // Email
-
                 string code = codeTextBox.Text;
                 string email = SqlQuery.GetEmailByConfirmCode(connection, code);
 
@@ -49,23 +36,21 @@ namespace Login
                 }
                 else
                 {
-                    if (SqlQuery.HasConfirmedEmail(connection, email))
+                    if (SqlQuery.VerifyConfirmationEmail(connection, email, code) && SqlQuery.ConfirmEmail(connection, email))
                     {
-                        Util.DebugLabel(confirmEmailDebugLabel, "Parece que esse email já está associado a outro usuário.");
+                        Util.DebugLabel(confirmEmailDebugLabel, "E-mail confirmado com sucesso.");
+
+                        await Task.Delay(1000);
+
+                        new LoginForm().Show();
+                        this.Hide();
                     }
                     else
                     {
-                        if (SqlQuery.VerifyConfirmationEmail(connection, email, code))
-                        {
-                            Util.DebugLabel(confirmEmailDebugLabel, "E-mail confirmado com sucesso.");
-
-                            await Task.Delay(1000);
-
-                            new LoginForm().Show();
-                            this.Hide();
-                        }
+                        Util.DebugLabel(confirmEmailDebugLabel, "Não foi possível confirmar o seu registro.");
                     }
                 }
+              
             }
             else
             {
