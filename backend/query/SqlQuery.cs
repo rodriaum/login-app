@@ -137,6 +137,28 @@ namespace Login.backend.query
             return false;
         }
 
+        /*
+        public static bool ConfirmationCodeExists(MySqlConnection connection, string code)
+        {
+            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM login WHERE code = @Code", connection))
+            {
+                command.Parameters.AddWithValue("@Code", code);
+
+                try
+                {
+                    if ((long)command.ExecuteScalar() > 0)
+                        return true;
+                }
+                catch (Exception ex)
+                {
+                    Util.OutgoingError("Verificar se o código de verificação existe.\nErro: " + ex.Message);
+                }
+            }
+
+            return false;
+        }
+        */
+
         public static string GetEmailByConfirmCode(MySqlConnection connection, string code)
         {
             using (MySqlCommand command = new MySqlCommand("SELECT email FROM login WHERE code = @Code", connection))

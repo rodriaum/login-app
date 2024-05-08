@@ -32,7 +32,7 @@ namespace Login
                     Util.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
                 }
 
-                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Contains("@"))
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && !email.Contains("@"))
                 {
                     if (SqlQuery.HasLogin(connection, email))
                     {
@@ -43,6 +43,7 @@ namespace Login
                         new ConfirmEmailForm().Show();
                         this.Hide();
 
+                        // Pode adicionar uma verificação caso exista o mesmo código no banco de dados.
                         string code = new Random().Next(100000, 999999).ToString();
 
                         SqlQuery.CreateLogin(connection, email, password, code);
