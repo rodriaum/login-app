@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            pictureBox1 = new PictureBox();
-            backgroundPictureBox = new PictureBox();
             loginPictureBox = new PictureBox();
             userTextBox = new TextBox();
             passwordTextBox = new TextBox();
@@ -40,27 +38,8 @@
             passwordDebugLabel = new Label();
             loginDebugLabel = new Label();
             registerButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)loginPictureBox).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(0, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(472, 418);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // backgroundPictureBox
-            // 
-            backgroundPictureBox.Image = (Image)resources.GetObject("backgroundPictureBox.Image");
-            backgroundPictureBox.Location = new Point(0, 1);
-            backgroundPictureBox.Name = "backgroundPictureBox";
-            backgroundPictureBox.Size = new Size(459, 418);
-            backgroundPictureBox.TabIndex = 1;
-            backgroundPictureBox.TabStop = false;
             // 
             // loginPictureBox
             // 
@@ -171,6 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(457, 411);
             Controls.Add(registerButton);
             Controls.Add(loginDebugLabel);
@@ -181,24 +161,17 @@
             Controls.Add(passwordTextBox);
             Controls.Add(userTextBox);
             Controls.Add(loginPictureBox);
-            Controls.Add(backgroundPictureBox);
-            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)loginPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
-        private PictureBox backgroundPictureBox;
         private PictureBox loginPictureBox;
         private TextBox userTextBox;
         private TextBox passwordTextBox;

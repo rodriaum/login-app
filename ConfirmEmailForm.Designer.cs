@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmEmailForm));
-            pictureBox1 = new PictureBox();
-            backgroundPictureBox = new PictureBox();
             confirmEmailPictureBox = new PictureBox();
             codeTextBox = new TextBox();
             verifyButton = new Button();
@@ -38,27 +36,8 @@
             codeDebugLabel = new Label();
             confirmEmailDebugLabel = new Label();
             returnButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)confirmEmailPictureBox).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(0, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(472, 418);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // backgroundPictureBox
-            // 
-            backgroundPictureBox.Image = (Image)resources.GetObject("backgroundPictureBox.Image");
-            backgroundPictureBox.Location = new Point(0, 1);
-            backgroundPictureBox.Name = "backgroundPictureBox";
-            backgroundPictureBox.Size = new Size(459, 418);
-            backgroundPictureBox.TabIndex = 1;
-            backgroundPictureBox.TabStop = false;
             // 
             // confirmEmailPictureBox
             // 
@@ -146,6 +125,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(457, 411);
             Controls.Add(returnButton);
             Controls.Add(confirmEmailDebugLabel);
@@ -154,24 +134,17 @@
             Controls.Add(verifyButton);
             Controls.Add(codeTextBox);
             Controls.Add(confirmEmailPictureBox);
-            Controls.Add(backgroundPictureBox);
-            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "ConfirmEmailForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Confirmar E-mail";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)confirmEmailPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
-        private PictureBox backgroundPictureBox;
         private PictureBox confirmEmailPictureBox;
         private TextBox codeTextBox;
         private Button verifyButton;
