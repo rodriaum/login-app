@@ -31,25 +31,14 @@ namespace Login
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivateAreaForm));
-            backgroundPictureBox = new PictureBox();
             privateAreaPictureBox = new PictureBox();
             userListBox = new ListBox();
             saveButton = new Button();
             exitButton = new Button();
             userLabel = new Label();
             infoLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)privateAreaPictureBox).BeginInit();
             SuspendLayout();
-            // 
-            // backgroundPictureBox
-            // 
-            backgroundPictureBox.Image = (Image)resources.GetObject("backgroundPictureBox.Image");
-            backgroundPictureBox.Location = new Point(0, 1);
-            backgroundPictureBox.Name = "backgroundPictureBox";
-            backgroundPictureBox.Size = new Size(459, 418);
-            backgroundPictureBox.TabIndex = 1;
-            backgroundPictureBox.TabStop = false;
             // 
             // privateAreaPictureBox
             // 
@@ -117,6 +106,7 @@ namespace Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(457, 411);
             Controls.Add(infoLabel);
             Controls.Add(userLabel);
@@ -124,21 +114,17 @@ namespace Login
             Controls.Add(exitButton);
             Controls.Add(userListBox);
             Controls.Add(privateAreaPictureBox);
-            Controls.Add(backgroundPictureBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "PrivateAreaForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PrivateAreaForm";
-            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)privateAreaPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox backgroundPictureBox;
         private PictureBox privateAreaPictureBox;
         private ListBox userListBox;
         private Button saveButton;
