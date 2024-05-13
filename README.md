@@ -10,8 +10,9 @@ Este projeto é um simples programa de login e registro criado em C#.
 
 - Conexão com banco de dados MySQL.
 - Verificação de campos de e-mail e senha.
-
 - Sistema de encriptação SHA256.
+
+## Encriptação SHA256
 
 ```csharp
         public static string HashPassword(string password)
