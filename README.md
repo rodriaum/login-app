@@ -10,11 +10,21 @@ Este projeto é um simples programa de login e registro criado em C#.
 
 - Conexão com banco de dados MySQL.
 - Verificação de campos de e-mail e senha.
+- Sistema de encriptação SHA256.
+
+## Imagens
+
+<img src="https://imgur.com/OzuXU64.png">
+<img src="https://imgur.com/ZjC4pXE.png">
+<img src="https://imgur.com/AMRP4zs.png">
+<img src="https://imgur.com/GrB14cw.png">
+<img src="https://imgur.com/CjYIXzT.png">
 
 ## Uso
 
-Ao iniciar o programa, uma conexão com o banco de dados é iniciada. Quando o botão de login é clicado, o programa verifica se os campos de e-mail e senha estão preenchidos. Se estiverem, ele verifica as credenciais no banco de dados.
+Antes de tudo, é preciso criar as tabelas, e você pode usar um [programa]([https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file](https://github.com/rodriaum/SQLTaskApplication)) que eu fiz dedicado para esse projeto. Ao iniciar o programa, uma conexão com o banco de dados é iniciada. Quando o botão de login é clicado, o programa verifica se os campos de e-mail e senha estão preenchidos. Se estiverem, ele cria um login não verificado no banco de dados.
 Além da funcionalidade de login, o programa possui uma área de registro onde os novos usuários podem criar suas próprias contas, fornecendo suas credenciais de login.
+Na área privada, existe uma página para remover ou alterar a password de um e-mail a escolha registrado no banco de dados.
 
 ## Contribuição
 
