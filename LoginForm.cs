@@ -43,14 +43,18 @@ namespace Login
                         {
                             if (SqlQuery.HasConfirmedEmail(connection, email))
                             {
-                                // Caso use o projeto, use sua criatividade aqui...
                                 Util.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
+
+                                await Task.Delay(1000);
+
+                                new PrivateAreaForm().Show();
+                                this.Hide();
                             }
                             else
                             {
                                 Util.DebugLabel(loginDebugLabel, "Você precisa verificar o e-mail antes de fazer login.");
 
-                                await Task.Delay(2000);
+                                await Task.Delay(1000);
 
                                 new ConfirmEmailForm().Show();
                                 this.Hide();

@@ -16,8 +16,7 @@ namespace Login.backend.query
 
                 try
                 {
-                    if (command.ExecuteNonQuery() > 0)
-                        return true;
+                    return command.ExecuteNonQuery() > 0;
                 }
                 catch (Exception ex)
                 {
@@ -28,6 +27,27 @@ namespace Login.backend.query
             return false;
         }
 
+        public static bool ChangePassword(MySqlConnection connection, string email, string newPassword)
+        {
+            using (MySqlCommand command = new MySqlCommand("UPDATE login SET password = @Password WHERE email = @Email", connection))
+            {
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", newPassword);
+
+                try
+                {
+                    return command.ExecuteNonQuery() > 0;
+                }
+                catch (Exception ex)
+                {
+                    Util.OutgoingError("Alterar password.\nErro: " + ex.Message);
+                }
+            }
+
+            return false;
+        }
+
+
         public static bool ConfirmEmail(MySqlConnection connection, string email)
         {
             using (MySqlCommand command = new MySqlCommand("UPDATE login SET checked = 1 WHERE email = @Email", connection))
@@ -36,8 +56,7 @@ namespace Login.backend.query
 
                 try
                 {
-                    if (command.ExecuteNonQuery() > 0)
-                        return true;
+                    return command.ExecuteNonQuery() > 0;
                 }
                 catch (Exception ex)
                 {
@@ -102,8 +121,7 @@ namespace Login.backend.query
 
                 try
                 {
-                    if ((long)command.ExecuteScalar() > 0)
-                        return true;
+                    return (long)command.ExecuteScalar() > 0;
                 }
                 catch (Exception ex)
                 {
@@ -203,6 +221,31 @@ namespace Login.backend.query
             }
 
             return "";
+        }
+
+        public static List<string> GetEmails(MySqlConnection connection)
+        {
+            List<string> list = new List<string>();
+
+            using (MySqlCommand command = new MySqlCommand("SELECT email FROM login", connection))
+            {
+                try
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add((string)reader["email"]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Util.OutgoingError("Obter a lista de e-mails.\nErro: " + ex.Message);
+                }
+            }
+
+            return list;
         }
     }
 }

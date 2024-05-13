@@ -32,7 +32,7 @@ namespace Login
                     Util.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
                 }
 
-                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && !email.Contains("@"))
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Contains("@"))
                 {
                     if (SqlQuery.HasLogin(connection, email))
                     {
