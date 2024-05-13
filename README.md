@@ -15,11 +15,11 @@ Este projeto é um simples programa de login e registro criado em C#.
 ## Imagens
 
 <p float="left">
-  <img src="https://imgur.com/OzuXU64.png" width="200" />
-  <img src="https://imgur.com/ZjC4pXE.png" width="200" /> 
-  <img src="https://imgur.com/AMRP4zs.png" width="200" />
-  <img src="https://imgur.com/GrB14cw.png" width="200" /> 
-  <img src="https://imgur.com/CjYIXzT.png" width="200" />
+  <img src="https://imgur.com/OzuXU64.png" width="160" />
+  <img src="https://imgur.com/ZjC4pXE.png" width="160" /> 
+  <img src="https://imgur.com/AMRP4zs.png" width="160" />
+  <img src="https://imgur.com/GrB14cw.png" width="160" /> 
+  <img src="https://imgur.com/CjYIXzT.png" width="160" />
 </p>
 
 ## Uso
