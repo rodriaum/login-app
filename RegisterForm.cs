@@ -46,7 +46,7 @@ namespace Login
                         // Pode adicionar uma verificação caso exista o mesmo código no banco de dados.
                         string code = new Random().Next(100000, 999999).ToString();
 
-                        SqlQuery.CreateLogin(connection, email, password, code);
+                        SqlQuery.CreateLogin(connection, email, Util.HashPassword(password), code);
 
                         // Para o projeto funcionar com o confirmador de e-mail, você precisa adicionar as credenciais.
                         // SmtpHelper.SendConfirmationEmail(
@@ -63,7 +63,7 @@ namespace Login
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            new LoginForm().Show();
+            new LoginForm("", "").Show();
             this.Hide();
         }
     }

@@ -47,6 +47,24 @@ namespace Login.backend.query
             return false;
         }
 
+        public static bool RemoveLoginByEmail(MySqlConnection connection, string email)
+        {
+            using (MySqlCommand command = new MySqlCommand("DELETE FROM login WHERE email = @Email", connection))
+            {
+                command.Parameters.AddWithValue("@Email", email);
+
+                try
+                {
+                    return command.ExecuteNonQuery() > 0;
+                }
+                catch (Exception ex)
+                {
+                    Util.OutgoingError("Remover login com base no e-mail.\nErro: " + ex.Message);
+                }
+            }
+
+            return false;
+        }
 
         public static bool ConfirmEmail(MySqlConnection connection, string email)
         {

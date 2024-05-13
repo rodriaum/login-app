@@ -8,10 +8,20 @@ namespace Login
     public partial class LoginForm : Form
     {
 
-        public LoginForm()
+        public LoginForm(string email, string password)
         {
             InitializeComponent();
             Connection.Init();
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                userTextBox.Text = email;
+            }
+
+            if (!string.IsNullOrEmpty(password)) 
+            { 
+                passwordTextBox.Text = password;
+            }
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
@@ -39,7 +49,7 @@ namespace Login
 
                     if (SqlQuery.HasLogin(connection, email))
                     {
-                        if (SqlQuery.VerifyLogin(connection, email, password))
+                        if (SqlQuery.VerifyLogin(connection, email, Util.HashPassword(password)))
                         {
                             if (SqlQuery.HasConfirmedEmail(connection, email))
                             {

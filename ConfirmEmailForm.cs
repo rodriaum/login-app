@@ -15,7 +15,7 @@ namespace Login
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            new LoginForm().Show();
+            new LoginForm("", "").Show();
             this.Hide();
         }
 
@@ -42,7 +42,7 @@ namespace Login
 
                         await Task.Delay(1000);
 
-                        new LoginForm().Show();
+                        new LoginForm(email, "").Show();
                         this.Hide();
                     }
                     else

@@ -1,16 +1,7 @@
 ﻿using Login.backend;
 using Login.backend.query;
+using Login.util;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Bcpg.OpenPgp;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Login
 {
@@ -23,6 +14,11 @@ namespace Login
             InitializeComponent();
 
             email = emailAdress;
+            SetDefaultLabel();
+        }
+
+        private void SetDefaultLabel()
+        {
             emailLabel.Text = email;
         }
 
@@ -37,13 +33,27 @@ namespace Login
 
         }
 
-        private void verifyButton_Click(object sender, EventArgs e)
+        private async void verifyButton_Click(object sender, EventArgs e)
         {
             MySqlConnection? connection = Connection.MySqlConnection;
 
-            if (connection != null && !string.IsNullOrEmpty(email))
+            string password = passwordTextBox.Text;
+
+            if (connection != null && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
-                SqlQuery.ChangePassword(connection, email, emailLabel.Text);
+                SqlQuery.ChangePassword(connection, email, Util.HashPassword(password));
+
+                emailLabel.Text = "E-mail alterado com sucesso.";
+                await Task.Delay(1000);
+
+                new PrivateAreaForm().Show();
+                this.Hide();
+            }
+            else
+            {
+                emailLabel.Text = "E-mail escolhido ou conexão inválido(a)";
+                await Task.Delay(3000);
+                SetDefaultLabel();
             }
         }
     }

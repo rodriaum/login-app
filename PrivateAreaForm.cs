@@ -9,24 +9,23 @@ namespace Login
         public PrivateAreaForm()
         {
             InitializeComponent();
+            ReloadListItems();
+        }
 
+        private void ReloadListItems()
+        {
             MySqlConnection? connection = Connection.MySqlConnection;
+
+            usersCheckedListBox.Items.Clear();
 
             if (connection != null)
             {
-                userListBox.Items.AddRange(SqlQuery.GetEmails(connection).ToArray());
+                usersCheckedListBox.Items.AddRange(SqlQuery.GetEmails(connection).ToArray());
             }
             else
             {
-                userListBox.Items.Add("Oops! Conexão inválida.");
+                usersCheckedListBox.Items.Add("Oops! Conexão inválida.");
             }
-        }
-
-        private async void saveButton_Click(object sender, EventArgs e)
-        {
-            infoLabel.Text = "Alterações guardadas com sucesso! A atualizar.";
-            await Task.Delay(1500);
-            infoLabel.Text = "Clique 2x para remover, 1x para alterar senha.";
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -36,22 +35,42 @@ namespace Login
 
         private void userListBox_DoubleClick(object sender, EventArgs e)
         {
-            object? item = userListBox.SelectedItem;
+            object? item = usersCheckedListBox.SelectedItem;
 
             if (item != null)
             {
-                userListBox.Items.Remove(item);
+                usersCheckedListBox.Items.Remove(item);
             }
         }
 
-        private void userListBox_Click(object sender, EventArgs e)
+        private void usersCheckedListBox_DoubleClick(object sender, EventArgs e)
         {
-            object? item = userListBox.SelectedItem;
+            object? item = usersCheckedListBox.SelectedItem;
 
             if (item != null)
             {
                 new ChangePassForm((string)item).Show();
                 this.Hide();
+            }
+        }
+
+        private void removeEmailsButton_Click(object sender, EventArgs e)
+        {
+            MySqlConnection? connection = Connection.MySqlConnection;
+
+            if (connection != null)
+            {
+                foreach (object item in usersCheckedListBox.CheckedItems)
+                {
+                    string email = (string)item;
+
+                    if (!string.IsNullOrEmpty(email))
+                    {
+                        SqlQuery.RemoveLoginByEmail(connection, email);
+                    }
+                }
+
+                ReloadListItems();
             }
         }
     }

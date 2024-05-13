@@ -32,8 +32,8 @@ namespace Login
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivateAreaForm));
             privateAreaPictureBox = new PictureBox();
-            userListBox = new ListBox();
-            saveButton = new Button();
+            usersCheckedListBox = new CheckedListBox();
+            removeEmailsButton = new Button();
             exitButton = new Button();
             userLabel = new Label();
             infoLabel = new Label();
@@ -49,26 +49,24 @@ namespace Login
             privateAreaPictureBox.TabIndex = 2;
             privateAreaPictureBox.TabStop = false;
             // 
-            // userListBox
+            // usersCheckedListBox
             // 
-            userListBox.FormattingEnabled = true;
-            userListBox.ItemHeight = 15;
-            userListBox.Location = new Point(58, 110);
-            userListBox.Name = "userListBox";
-            userListBox.Size = new Size(347, 214);
-            userListBox.TabIndex = 3;
-            userListBox.Click += userListBox_Click;
-            userListBox.DoubleClick += userListBox_DoubleClick;
+            usersCheckedListBox.FormattingEnabled = true;
+            usersCheckedListBox.Location = new Point(58, 110);
+            usersCheckedListBox.Name = "usersCheckedListBox";
+            usersCheckedListBox.Size = new Size(347, 202);
+            usersCheckedListBox.TabIndex = 3;
+            usersCheckedListBox.DoubleClick += usersCheckedListBox_DoubleClick;
             // 
-            // saveButton
+            // removeEmailsButton
             // 
-            saveButton.Location = new Point(58, 315);
-            saveButton.Name = "saveButton";
-            saveButton.Size = new Size(175, 42);
-            saveButton.TabIndex = 4;
-            saveButton.Text = "Guardar Alterações";
-            saveButton.UseVisualStyleBackColor = true;
-            saveButton.Click += saveButton_Click;
+            removeEmailsButton.Location = new Point(58, 315);
+            removeEmailsButton.Name = "removeEmailsButton";
+            removeEmailsButton.Size = new Size(175, 42);
+            removeEmailsButton.TabIndex = 4;
+            removeEmailsButton.Text = "Remover E-mails Selecionados";
+            removeEmailsButton.UseVisualStyleBackColor = true;
+            removeEmailsButton.Click += removeEmailsButton_Click;
             // 
             // exitButton
             // 
@@ -96,11 +94,11 @@ namespace Login
             infoLabel.AutoSize = true;
             infoLabel.Font = new Font("Times New Roman", 8F, FontStyle.Italic);
             infoLabel.ForeColor = Color.MediumPurple;
-            infoLabel.Location = new Point(120, 92);
+            infoLabel.Location = new Point(129, 92);
             infoLabel.Name = "infoLabel";
-            infoLabel.Size = new Size(225, 14);
+            infoLabel.Size = new Size(207, 14);
             infoLabel.TabIndex = 11;
-            infoLabel.Text = "Clique 2x para remover, 1x para alterar senha.";
+            infoLabel.Text = "Clique 2x para alterar password do e-mail.";
             // 
             // PrivateAreaForm
             // 
@@ -110,9 +108,9 @@ namespace Login
             ClientSize = new Size(457, 411);
             Controls.Add(infoLabel);
             Controls.Add(userLabel);
-            Controls.Add(saveButton);
+            Controls.Add(removeEmailsButton);
             Controls.Add(exitButton);
-            Controls.Add(userListBox);
+            Controls.Add(usersCheckedListBox);
             Controls.Add(privateAreaPictureBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -126,8 +124,8 @@ namespace Login
 
         #endregion
         private PictureBox privateAreaPictureBox;
-        private ListBox userListBox;
-        private Button saveButton;
+        private CheckedListBox usersCheckedListBox;
+        private Button removeEmailsButton;
         private Button exitButton;
         private Label userLabel;
         private Label infoLabel;
