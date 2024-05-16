@@ -55,7 +55,3 @@ Contribuições são bem-vindas. Por favor, faça um fork do projeto e crie um pull 
 ## Licença
 
 Este projeto é licenciado sob a [MIT License](https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file).
-
----
-
-*Nota: Por favor, esteja ciente de que este programa ainda está em fase de desenvolvimento e pode sofrer alterações.*
