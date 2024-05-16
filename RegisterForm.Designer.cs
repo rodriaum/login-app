@@ -38,6 +38,8 @@
             userDebugLabel = new Label();
             passwordDebugLabel = new Label();
             loginDebugLabel = new Label();
+            emailLabel = new Label();
+            passwordLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)registerPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -144,6 +146,30 @@
             loginDebugLabel.TabIndex = 16;
             loginDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailLabel.ForeColor = SystemColors.ControlDarkDark;
+            emailLabel.Location = new Point(121, 145);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new Size(49, 16);
+            emailLabel.TabIndex = 18;
+            emailLabel.Text = "E-mail";
+            emailLabel.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordLabel.ForeColor = SystemColors.ControlDarkDark;
+            passwordLabel.Location = new Point(121, 196);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(66, 16);
+            passwordLabel.TabIndex = 19;
+            passwordLabel.Text = "Password";
+            passwordLabel.TextAlign = ContentAlignment.BottomCenter;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -158,6 +184,8 @@
             Controls.Add(returnButton);
             Controls.Add(passwordTextBox);
             Controls.Add(userTextBox);
+            Controls.Add(emailLabel);
+            Controls.Add(passwordLabel);
             Controls.Add(registerPictureBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -181,5 +209,7 @@
         private Label loginDebugLabel;
         private PictureBox registerPictureBox;
         private Label registerLabel;
+        private Label emailLabel;
+        private Label passwordLabel;
     }
 }

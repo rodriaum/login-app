@@ -38,6 +38,8 @@
             passwordDebugLabel = new Label();
             loginDebugLabel = new Label();
             registerButton = new Button();
+            emailLabel = new Label();
+            passwordLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)loginPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -146,12 +148,38 @@
             registerButton.UseVisualStyleBackColor = false;
             registerButton.Click += registerButton_Click;
             // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailLabel.ForeColor = SystemColors.ControlDarkDark;
+            emailLabel.Location = new Point(121, 145);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new Size(49, 16);
+            emailLabel.TabIndex = 18;
+            emailLabel.Text = "E-mail";
+            emailLabel.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordLabel.ForeColor = SystemColors.ControlDarkDark;
+            passwordLabel.Location = new Point(121, 196);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(66, 16);
+            passwordLabel.TabIndex = 19;
+            passwordLabel.Text = "Password";
+            passwordLabel.TextAlign = ContentAlignment.BottomCenter;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(457, 411);
+            Controls.Add(passwordLabel);
+            Controls.Add(emailLabel);
             Controls.Add(registerButton);
             Controls.Add(loginDebugLabel);
             Controls.Add(passwordDebugLabel);
@@ -181,5 +209,7 @@
         private Label passwordDebugLabel;
         private Label loginDebugLabel;
         private Button registerButton;
+        private Label emailLabel;
+        private Label passwordLabel;
     }
 }

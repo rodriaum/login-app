@@ -36,6 +36,7 @@
             codeDebugLabel = new Label();
             confirmEmailDebugLabel = new Label();
             returnButton = new Button();
+            userCodeLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)confirmEmailPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -121,6 +122,18 @@
             returnButton.UseVisualStyleBackColor = false;
             returnButton.Click += registerButton_Click;
             // 
+            // userEmailLabel
+            // 
+            userCodeLabel.AutoSize = true;
+            userCodeLabel.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userCodeLabel.ForeColor = SystemColors.ControlDarkDark;
+            userCodeLabel.Location = new Point(121, 145);
+            userCodeLabel.Name = "userCodeLabel";
+            userCodeLabel.Size = new Size(49, 16);
+            userCodeLabel.TabIndex = 18;
+            userCodeLabel.Text = "Código de Acesso";
+            userCodeLabel.TextAlign = ContentAlignment.BottomCenter;
+            // 
             // ConfirmEmailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -130,6 +143,7 @@
             Controls.Add(returnButton);
             Controls.Add(confirmEmailDebugLabel);
             Controls.Add(codeDebugLabel);
+            Controls.Add(userCodeLabel);
             Controls.Add(confirmEmailLabel);
             Controls.Add(verifyButton);
             Controls.Add(codeTextBox);
@@ -152,5 +166,6 @@
         private Label codeDebugLabel;
         private Label confirmEmailDebugLabel;
         private Button returnButton;
+        private Label userCodeLabel;
     }
 }

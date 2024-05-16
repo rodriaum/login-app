@@ -37,6 +37,7 @@
             confirmEmailDebugLabel = new Label();
             returnButton = new Button();
             emailLabel = new Label();
+            userPasswordLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)confirmEmailPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -133,6 +134,18 @@
             emailLabel.TabIndex = 18;
             emailLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // userPasswordLabel
+            // 
+            userPasswordLabel.AutoSize = true;
+            userPasswordLabel.Font = new Font("Lucida Sans Unicode", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userPasswordLabel.ForeColor = SystemColors.ControlDarkDark;
+            userPasswordLabel.Location = new Point(121, 145);
+            userPasswordLabel.Name = "userPasswordLabel";
+            userPasswordLabel.Size = new Size(66, 16);
+            userPasswordLabel.TabIndex = 18;
+            userPasswordLabel.Text = "Password";
+            userPasswordLabel.TextAlign = ContentAlignment.BottomCenter;
+            // 
             // ChangePassForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -146,6 +159,7 @@
             Controls.Add(confirmEmailLabel);
             Controls.Add(verifyButton);
             Controls.Add(passwordTextBox);
+            Controls.Add(userPasswordLabel);
             Controls.Add(confirmEmailPictureBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -166,5 +180,6 @@
         private Label confirmEmailDebugLabel;
         private Button returnButton;
         private Label emailLabel;
+        private Label userPasswordLabel;
     }
 }
