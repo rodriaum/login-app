@@ -21,4 +21,4 @@ Na área privada, existe uma página para remover ou alterar a senha de um e-mai
 
 ## Licença
 
-[MIT License](https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file)
+[MIT License](https://github.com/rodriaum/login-dotnet?tab=MIT-1-ov-file#MIT-1-ov-file)
