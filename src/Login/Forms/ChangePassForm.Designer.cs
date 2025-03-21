@@ -162,6 +162,7 @@ partial class ChangePassForm
         this.Controls.Add(this.verifyButton);
         this.Controls.Add(this.userPasswordLabel);
         this.Controls.Add(this.confirmEmailPictureBox);
+        this.Controls.Add(passwordTextBox);
         this.Name = "ChangePassForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "Confirmar E-mail";

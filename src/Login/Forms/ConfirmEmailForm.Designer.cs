@@ -147,6 +147,7 @@ partial class ConfirmEmailForm
         this.Controls.Add(this.confirmEmailLabel);
         this.Controls.Add(this.verifyButton);
         this.Controls.Add(this.confirmEmailPictureBox);
+        this.Controls.Add(codeTextBox);
         this.Name = "ConfirmEmailForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "Confirmar E-mail";

@@ -212,6 +212,10 @@ partial class RegisterForm
         this.Controls.Add(this.emailLabel);
         this.Controls.Add(this.passwordLabel);
         this.Controls.Add(this.registerPictureBox);
+        this.Controls.Add(userTextBox);
+        this.Controls.Add(passwordTextBox);
+        this.Controls.Add(userTextBox);
+        this.Controls.Add(passwordTextBox);
         this.Name = "RegisterForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "Registro";
