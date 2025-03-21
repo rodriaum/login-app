@@ -9,20 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="NovaPasta1\**" />
-    <Compile Remove="NovaPasta2\**" />
-    <Compile Remove="NovaPasta3\**" />
-    <EmbeddedResource Remove="NovaPasta1\**" />
-    <EmbeddedResource Remove="NovaPasta2\**" />
-    <EmbeddedResource Remove="NovaPasta3\**" />
-    <None Remove="NovaPasta1\**" />
-    <None Remove="NovaPasta2\**" />
-    <None Remove="NovaPasta3\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="ConfirmEmail.cs" />
-    <Compile Remove="ConfirmEmail.Designer.cs" />
+    <Compile Remove="Login\ConfirmEmail.cs" />
+    <Compile Remove="Login\ConfirmEmail.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
