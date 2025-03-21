@@ -38,6 +38,7 @@ partial class ConfirmEmailForm
         this.confirmEmailDebugLabel = new Label();
         this.returnButton = new Button();
         this.userCodeLabel = new Label();
+        this.codeTextBox = new RoundedTextBox();
         ((System.ComponentModel.ISupportInitialize)this.confirmEmailPictureBox).BeginInit();
         this.SuspendLayout();
         // 
@@ -65,6 +66,18 @@ partial class ConfirmEmailForm
         this.verifyButton.UseVisualStyleBackColor = false;
         this.verifyButton.Click += this.VerifyButton_Click;
         // 
+        // codeTextBox
+        // 
+        codeTextBox.BackColor = SystemColors.Menu;
+        codeTextBox.BorderStyle = BorderStyle.None;
+        codeTextBox.Font = new Font("Barlow", 11F);
+        codeTextBox.ForeColor = Color.DimGray;
+        codeTextBox.Location = new Point(121, 169);
+        codeTextBox.MaxLength = 6;
+        codeTextBox.Name = "codeTextBox";
+        codeTextBox.Size = new Size(222, 18);
+        codeTextBox.TabIndex = 0;
+        // 
         // confirmEmailLabel
         // 
         this.confirmEmailLabel.AutoSize = true;
@@ -79,7 +92,7 @@ partial class ConfirmEmailForm
         // codeDebugLabel
         // 
         this.codeDebugLabel.AutoSize = true;
-        this.codeDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
+        this.codeDebugLabel.Font = new Font("Barlow", 10F);
         this.codeDebugLabel.Location = new Point(165, 196);
         this.codeDebugLabel.Name = "codeDebugLabel";
         this.codeDebugLabel.Size = new Size(0, 17);
@@ -89,7 +102,7 @@ partial class ConfirmEmailForm
         // confirmEmailDebugLabel
         // 
         this.confirmEmailDebugLabel.AutoSize = true;
-        this.confirmEmailDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
+        this.confirmEmailDebugLabel.Font = new Font("Barlow", 10F);
         this.confirmEmailDebugLabel.Location = new Point(88, 330);
         this.confirmEmailDebugLabel.Name = "confirmEmailDebugLabel";
         this.confirmEmailDebugLabel.Size = new Size(0, 17);

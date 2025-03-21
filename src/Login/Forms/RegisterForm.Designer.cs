@@ -172,6 +172,31 @@ partial class RegisterForm
         this.passwordLabel.Text = "Password";
         this.passwordLabel.TextAlign = ContentAlignment.BottomCenter;
         // 
+        // userTextBox
+        // 
+        this.userTextBox.BackColor = Color.Gainsboro;
+        this.userTextBox.Multiline = true;
+        userTextBox.BorderStyle = BorderStyle.None;
+        userTextBox.Font = new Font("Trebuchet MS", 11F);
+        userTextBox.ForeColor = Color.DimGray;
+        userTextBox.Location = new Point(121, 169);
+        userTextBox.Name = "userTextBox";
+        userTextBox.Size = new Size(222, 18);
+        userTextBox.TabIndex = 0;
+        // 
+        // passwordTextBox
+        // 
+        this.passwordTextBox.BackColor = Color.Gainsboro;
+        this.passwordTextBox.Multiline = true;
+        passwordTextBox.BorderStyle = BorderStyle.None;
+        passwordTextBox.Font = new Font("Trebuchet MS", 11F);
+        passwordTextBox.ForeColor = Color.DimGray;
+        passwordTextBox.Location = new Point(121, 219);
+        passwordTextBox.Name = "passwordTextBox";
+        passwordTextBox.Size = new Size(222, 18);
+        passwordTextBox.TabIndex = 1;
+        passwordTextBox.UseSystemPasswordChar = true;
+        // 
         // RegisterForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);

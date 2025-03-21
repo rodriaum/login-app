@@ -39,6 +39,7 @@ partial class ChangePassForm
         this.returnButton = new Button();
         this.emailLabel = new Label();
         this.userPasswordLabel = new Label();
+        this.passwordTextBox = new RoundedTextBox();
         ((System.ComponentModel.ISupportInitialize)this.confirmEmailPictureBox).BeginInit();
         this.SuspendLayout();
         // 
@@ -113,10 +114,10 @@ partial class ChangePassForm
         // 
         // passwordTextBox
         // 
-        this.passwordTextBox.BackColor = Color.Gainsboro;
-        this.passwordTextBox.Multiline = true;
+        passwordTextBox.BackColor = Color.Gainsboro;
+        passwordTextBox.Multiline = true;
         passwordTextBox.BorderStyle = BorderStyle.None;
-        passwordTextBox.Font = new Font("Trebuchet MS", 11F);
+        passwordTextBox.Font = new Font("Barlow", 11F);
         passwordTextBox.ForeColor = Color.DimGray;
         passwordTextBox.Location = new Point(121, 169);
         passwordTextBox.MaxLength = 6;
