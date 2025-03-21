@@ -36,7 +36,6 @@ partial class LoginForm
         this.passwordTextBox = new RoundedTextBox();
         this.loginButton = new Button();
         this.loginLabel = new Label();
-        this.userDebugLabel = new Label();
         this.passwordDebugLabel = new Label();
         this.loginDebugLabel = new Label();
         this.registerButton = new Button();
@@ -107,16 +106,6 @@ partial class LoginForm
         this.loginLabel.TabIndex = 9;
         this.loginLabel.Text = "LOGIN";
         // 
-        // userDebugLabel
-        // 
-        this.userDebugLabel.AutoSize = true;
-        this.userDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
-        this.userDebugLabel.Location = new Point(165, 196);
-        this.userDebugLabel.Name = "userDebugLabel";
-        this.userDebugLabel.Size = new Size(0, 17);
-        this.userDebugLabel.TabIndex = 14;
-        this.userDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // passwordDebugLabel
         // 
         this.passwordDebugLabel.AutoSize = true;
@@ -185,7 +174,6 @@ partial class LoginForm
         this.Controls.Add(this.registerButton);
         this.Controls.Add(this.loginDebugLabel);
         this.Controls.Add(this.passwordDebugLabel);
-        this.Controls.Add(this.userDebugLabel);
         this.Controls.Add(this.loginLabel);
         this.Controls.Add(this.loginButton);
         this.Controls.Add(this.passwordTextBox);
@@ -205,7 +193,6 @@ partial class LoginForm
     private RoundedTextBox passwordTextBox;
     private Button loginButton;
     private Label loginLabel;
-    private Label userDebugLabel;
     private Label passwordDebugLabel;
     private Label loginDebugLabel;
     private Button registerButton;

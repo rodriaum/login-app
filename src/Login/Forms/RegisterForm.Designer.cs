@@ -35,7 +35,6 @@ partial class RegisterForm
         this.registerButton = new Button();
         this.returnButton = new Button();
         this.registerLabel = new Label();
-        this.userDebugLabel = new Label();
         this.passwordDebugLabel = new Label();
         this.loginDebugLabel = new Label();
         this.emailLabel = new Label();
@@ -118,16 +117,6 @@ partial class RegisterForm
         this.registerLabel.TabIndex = 9;
         this.registerLabel.Text = "REGISTRO";
         // 
-        // userDebugLabel
-        // 
-        this.userDebugLabel.AutoSize = true;
-        this.userDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
-        this.userDebugLabel.Location = new Point(165, 196);
-        this.userDebugLabel.Name = "userDebugLabel";
-        this.userDebugLabel.Size = new Size(0, 17);
-        this.userDebugLabel.TabIndex = 14;
-        this.userDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // passwordDebugLabel
         // 
         this.passwordDebugLabel.AutoSize = true;
@@ -176,26 +165,26 @@ partial class RegisterForm
         // 
         this.userTextBox.BackColor = Color.Gainsboro;
         this.userTextBox.Multiline = true;
-        userTextBox.BorderStyle = BorderStyle.None;
-        userTextBox.Font = new Font("Trebuchet MS", 11F);
-        userTextBox.ForeColor = Color.DimGray;
-        userTextBox.Location = new Point(121, 169);
-        userTextBox.Name = "userTextBox";
-        userTextBox.Size = new Size(222, 18);
-        userTextBox.TabIndex = 0;
+        this.userTextBox.BorderStyle = BorderStyle.None;
+        this.userTextBox.Font = new Font("Barlow", 11F);
+        this.userTextBox.ForeColor = Color.DimGray;
+        this.userTextBox.Location = new Point(121, 169);
+        this.userTextBox.Name = "userTextBox";
+        this.userTextBox.Size = new Size(222, 18);
+        this.userTextBox.TabIndex = 0;
         // 
         // passwordTextBox
         // 
         this.passwordTextBox.BackColor = Color.Gainsboro;
         this.passwordTextBox.Multiline = true;
-        passwordTextBox.BorderStyle = BorderStyle.None;
-        passwordTextBox.Font = new Font("Trebuchet MS", 11F);
-        passwordTextBox.ForeColor = Color.DimGray;
-        passwordTextBox.Location = new Point(121, 219);
-        passwordTextBox.Name = "passwordTextBox";
-        passwordTextBox.Size = new Size(222, 18);
-        passwordTextBox.TabIndex = 1;
-        passwordTextBox.UseSystemPasswordChar = true;
+        this.passwordTextBox.BorderStyle = BorderStyle.None;
+        this.passwordTextBox.Font = new Font("Barlow", 11F);
+        this.passwordTextBox.ForeColor = Color.DimGray;
+        this.passwordTextBox.Location = new Point(121, 219);
+        this.passwordTextBox.Name = "passwordTextBox";
+        this.passwordTextBox.Size = new Size(222, 18);
+        this.passwordTextBox.TabIndex = 1;
+        this.passwordTextBox.UseSystemPasswordChar = true;
         // 
         // RegisterForm
         // 
@@ -205,17 +194,14 @@ partial class RegisterForm
         this.ClientSize = new Size(457, 411);
         this.Controls.Add(this.loginDebugLabel);
         this.Controls.Add(this.passwordDebugLabel);
-        this.Controls.Add(this.userDebugLabel);
         this.Controls.Add(this.registerLabel);
         this.Controls.Add(this.registerButton);
         this.Controls.Add(this.returnButton);
         this.Controls.Add(this.emailLabel);
         this.Controls.Add(this.passwordLabel);
         this.Controls.Add(this.registerPictureBox);
-        this.Controls.Add(userTextBox);
-        this.Controls.Add(passwordTextBox);
-        this.Controls.Add(userTextBox);
-        this.Controls.Add(passwordTextBox);
+        this.Controls.Add(this.userTextBox);
+        this.Controls.Add(this.passwordTextBox);
         this.Name = "RegisterForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "Registro";
@@ -231,7 +217,6 @@ partial class RegisterForm
     private Button registerButton;
     private Button returnButton;
     private Label loginLabel;
-    private Label userDebugLabel;
     private Label passwordDebugLabel;
     private Label loginDebugLabel;
     private PictureBox registerPictureBox;

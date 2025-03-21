@@ -33,13 +33,13 @@ public partial class ConfirmEmailForm : TemplateForm
             // Regex: Verifica se é dígito.
             if (string.IsNullOrEmpty(code) && !Regex.IsMatch(code, @"^[0-9]+$"))
             {
-                AppHelper.DebugLabel(codeDebugLabel, "Insira um código válido.");
+                AppHelper.DebugMessageBox("Insira um código válido.");
             }
             else
             {
                 if (QueryDB.VerifyConfirmationEmail(connection, email, code) && QueryDB.ConfirmEmail(connection, email))
                 {
-                    AppHelper.DebugLabel(confirmEmailDebugLabel, "E-mail confirmado com sucesso.");
+                    AppHelper.DebugMessageBox("E-mail confirmado com sucesso.");
 
                     await Task.Delay(1000);
 
@@ -48,7 +48,7 @@ public partial class ConfirmEmailForm : TemplateForm
                 }
                 else
                 {
-                    AppHelper.DebugLabel(confirmEmailDebugLabel, "Não foi possível confirmar o seu registro.");
+                    AppHelper.DebugMessageBox("Não foi possível confirmar o seu registro.");
                 }
             }
           

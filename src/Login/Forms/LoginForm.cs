@@ -37,12 +37,12 @@ public partial class LoginForm : TemplateForm
 
             if (string.IsNullOrEmpty(email) || !email.Contains("@"))
             {
-                AppHelper.DebugLabel(userDebugLabel, "Insira um e-mail válido.");
+                AppHelper.DebugMessageBox("Insira um e-mail válido.");
             }
 
             if (string.IsNullOrEmpty(password))
             {
-                AppHelper.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
+                AppHelper.DebugMessageBox("Insira uma password válida.");
             }
 
             if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Contains("@"))
@@ -54,16 +54,12 @@ public partial class LoginForm : TemplateForm
                     {
                         if (QueryDB.HasConfirmedEmail(connection, email))
                         {
-                            AppHelper.DebugLabel(loginDebugLabel, "Login efetuado com sucesso.");
-
-                            await Task.Delay(1000);
-
                             new PrivateAreaForm().Show();
                             this.Hide();
                         }
                         else
                         {
-                            AppHelper.DebugLabel(loginDebugLabel, "Você precisa verificar o e-mail antes de fazer login.");
+                            AppHelper.DebugMessageBox("Você precisa verificar o e-mail antes de fazer login.");
 
                             await Task.Delay(1000);
 
@@ -73,12 +69,12 @@ public partial class LoginForm : TemplateForm
                     }
                     else
                     {
-                        AppHelper.DebugLabel(loginDebugLabel, "Os parâmetros de login estão incorreto.");
+                        AppHelper.DebugMessageBox("Os parâmetros de login estão incorreto.");
                     }
                 }
                 else
                 {
-                    AppHelper.DebugLabel(loginDebugLabel, "Não existe nenhum login com essas credenciais.");
+                    AppHelper.DebugMessageBox("Não existe nenhum login com essas credenciais.");
                 }
             }
         }

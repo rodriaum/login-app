@@ -34,7 +34,6 @@ partial class ChangePassForm
         this.confirmEmailPictureBox = new PictureBox();
         this.verifyButton = new Button();
         this.confirmEmailLabel = new Label();
-        this.codeDebugLabel = new Label();
         this.confirmEmailDebugLabel = new Label();
         this.returnButton = new Button();
         this.emailLabel = new Label();
@@ -79,20 +78,10 @@ partial class ChangePassForm
         this.confirmEmailLabel.TabIndex = 9;
         this.confirmEmailLabel.Text = "ALTERAR PASSWORD";
         // 
-        // codeDebugLabel
-        // 
-        this.codeDebugLabel.AutoSize = true;
-        this.codeDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
-        this.codeDebugLabel.Location = new Point(165, 196);
-        this.codeDebugLabel.Name = "codeDebugLabel";
-        this.codeDebugLabel.Size = new Size(0, 17);
-        this.codeDebugLabel.TabIndex = 14;
-        this.codeDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // confirmEmailDebugLabel
         // 
         this.confirmEmailDebugLabel.AutoSize = true;
-        this.confirmEmailDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
+        this.confirmEmailDebugLabel.Font = new Font("Barlow", 10F);
         this.confirmEmailDebugLabel.Location = new Point(88, 330);
         this.confirmEmailDebugLabel.Name = "confirmEmailDebugLabel";
         this.confirmEmailDebugLabel.Size = new Size(0, 17);
@@ -157,7 +146,6 @@ partial class ChangePassForm
         this.Controls.Add(this.emailLabel);
         this.Controls.Add(this.returnButton);
         this.Controls.Add(this.confirmEmailDebugLabel);
-        this.Controls.Add(this.codeDebugLabel);
         this.Controls.Add(this.confirmEmailLabel);
         this.Controls.Add(this.verifyButton);
         this.Controls.Add(this.userPasswordLabel);
@@ -176,7 +164,6 @@ partial class ChangePassForm
     private RoundedTextBox passwordTextBox;
     private Button verifyButton;
     private Label confirmEmailLabel;
-    private Label codeDebugLabel;
     private Label confirmEmailDebugLabel;
     private Button returnButton;
     private Label emailLabel;

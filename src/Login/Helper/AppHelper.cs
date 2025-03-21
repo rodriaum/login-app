@@ -10,10 +10,8 @@ internal class AppHelper
             Environment.Exit(1);
     }
 
-    public static async void DebugLabel(Label label, string text)
+    public static void DebugMessageBox(string text)
     {
-        label.Text = text;
-        await Task.Delay(1500);
-        label.Text = "";
+        MessageBox.Show(text, "Aviso");
     }
 }

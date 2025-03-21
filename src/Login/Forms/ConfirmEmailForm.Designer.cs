@@ -34,7 +34,6 @@ partial class ConfirmEmailForm
         this.confirmEmailPictureBox = new PictureBox();
         this.verifyButton = new Button();
         this.confirmEmailLabel = new Label();
-        this.codeDebugLabel = new Label();
         this.confirmEmailDebugLabel = new Label();
         this.returnButton = new Button();
         this.userCodeLabel = new Label();
@@ -89,16 +88,6 @@ partial class ConfirmEmailForm
         this.confirmEmailLabel.TabIndex = 9;
         this.confirmEmailLabel.Text = "VERIFICAR E-MAIL";
         // 
-        // codeDebugLabel
-        // 
-        this.codeDebugLabel.AutoSize = true;
-        this.codeDebugLabel.Font = new Font("Barlow", 10F);
-        this.codeDebugLabel.Location = new Point(165, 196);
-        this.codeDebugLabel.Name = "codeDebugLabel";
-        this.codeDebugLabel.Size = new Size(0, 17);
-        this.codeDebugLabel.TabIndex = 14;
-        this.codeDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // confirmEmailDebugLabel
         // 
         this.confirmEmailDebugLabel.AutoSize = true;
@@ -142,7 +131,6 @@ partial class ConfirmEmailForm
         this.ClientSize = new Size(457, 411);
         this.Controls.Add(this.returnButton);
         this.Controls.Add(this.confirmEmailDebugLabel);
-        this.Controls.Add(this.codeDebugLabel);
         this.Controls.Add(this.userCodeLabel);
         this.Controls.Add(this.confirmEmailLabel);
         this.Controls.Add(this.verifyButton);
@@ -161,7 +149,6 @@ partial class ConfirmEmailForm
     private RoundedTextBox codeTextBox;
     private Button verifyButton;
     private Label confirmEmailLabel;
-    private Label codeDebugLabel;
     private Label confirmEmailDebugLabel;
     private Button returnButton;
     private Label userCodeLabel;

@@ -27,19 +27,19 @@ public partial class RegisterForm : TemplateForm
 
             if (string.IsNullOrEmpty(email) || !email.Contains("@"))
             {
-                AppHelper.DebugLabel(userDebugLabel, "Insira um e-mail válido.");
+                AppHelper.DebugMessageBox("Insira um e-mail válido.");
             }
 
             if (string.IsNullOrEmpty(password))
             {
-                AppHelper.DebugLabel(passwordDebugLabel, "Insira uma password válida.");
+                AppHelper.DebugMessageBox("Insira uma password válida.");
             }
 
             if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password) && email.Contains("@"))
             {
                 if (QueryDB.HasLogin(connection, email))
                 {
-                    AppHelper.DebugLabel(loginDebugLabel, "Parece que esse email já está associado a outro usuário.");
+                    AppHelper.DebugMessageBox("Parece que esse email já está associado a outro usuário.");
                 }
                 else
                 {
