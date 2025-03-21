@@ -50,7 +50,7 @@ public partial class LoginForm : TemplateForm
 
                 if (QueryDB.HasLogin(connection, email))
                 {
-                    if (QueryDB.VerifyLogin(connection, email, EncryptionHelper.SHA256(password)))
+                    if (QueryDB.VerifyLogin(connection, email, BCrypt.Net.BCrypt.HashPassword(password)))
                     {
                         if (QueryDB.HasConfirmedEmail(connection, email))
                         {

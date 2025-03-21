@@ -49,7 +49,7 @@ public partial class RegisterForm : TemplateForm
                     // Pode adicionar uma verificação caso exista o mesmo código no banco de dados.
                     string code = new Random().Next(100000, 999999).ToString();
 
-                    QueryDB.CreateLogin(connection, email, EncryptionHelper.SHA256(password), code);
+                    QueryDB.CreateLogin(connection, email, BCrypt.Net.BCrypt.HashPassword(password), code);
 
                     // Coloquem as credenciais do seu e-mail.
 

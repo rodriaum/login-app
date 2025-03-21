@@ -1,6 +1,5 @@
 ﻿using Login.Database;
 using Login.Database.Query;
-using Login.Helper;
 using Login.Login.Templates;
 using MySql.Data.MySqlClient;
 
@@ -42,7 +41,7 @@ public partial class ChangePassForm : TemplateForm
 
         if (connection != null && !string.IsNullOrEmpty(_email) && !string.IsNullOrEmpty(password))
         {
-            QueryDB.ChangePassword(connection, _email, EncryptionHelper.SHA256(password));
+            QueryDB.ChangePassword(connection, _email, BCrypt.Net.BCrypt.HashPassword(password));
 
             emailLabel.Text = "E-mail alterado com sucesso.";
             await Task.Delay(1000);
