@@ -36,8 +36,6 @@ partial class LoginForm
         this.passwordTextBox = new RoundedTextBox();
         this.loginButton = new Button();
         this.loginLabel = new Label();
-        this.passwordDebugLabel = new Label();
-        this.loginDebugLabel = new Label();
         this.registerButton = new Button();
         this.emailLabel = new Label();
         this.passwordLabel = new Label();
@@ -50,6 +48,7 @@ partial class LoginForm
         this.loginPictureBox.Name = "loginPictureBox";
         this.loginPictureBox.Size = new Size(347, 307);
         this.loginPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        this.loginPictureBox.BackColor = Color.White;
         this.loginPictureBox.TabIndex = 3;
         this.loginPictureBox.TabStop = false;
         // 
@@ -105,26 +104,7 @@ partial class LoginForm
         this.loginLabel.Size = new Size(97, 39);
         this.loginLabel.TabIndex = 9;
         this.loginLabel.Text = "LOGIN";
-        // 
-        // passwordDebugLabel
-        // 
-        this.passwordDebugLabel.AutoSize = true;
-        this.passwordDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
-        this.passwordDebugLabel.Location = new Point(165, 247);
-        this.passwordDebugLabel.Name = "passwordDebugLabel";
-        this.passwordDebugLabel.Size = new Size(0, 17);
-        this.passwordDebugLabel.TabIndex = 15;
-        this.passwordDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // loginDebugLabel
-        // 
-        this.loginDebugLabel.AutoSize = true;
-        this.loginDebugLabel.Font = new Font("Microsoft Sans Serif", 10F);
-        this.loginDebugLabel.Location = new Point(88, 330);
-        this.loginDebugLabel.Name = "loginDebugLabel";
-        this.loginDebugLabel.Size = new Size(0, 17);
-        this.loginDebugLabel.TabIndex = 16;
-        this.loginDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.loginLabel.BackColor = Color.White;
         // 
         // registerButton
         // 
@@ -150,6 +130,7 @@ partial class LoginForm
         this.emailLabel.TabIndex = 18;
         this.emailLabel.Text = "E-mail";
         this.emailLabel.TextAlign = ContentAlignment.BottomCenter;
+        this.emailLabel.BackColor = Color.White;
         // 
         // passwordLabel
         // 
@@ -162,18 +143,17 @@ partial class LoginForm
         this.passwordLabel.TabIndex = 19;
         this.passwordLabel.Text = "Password";
         this.passwordLabel.TextAlign = ContentAlignment.BottomCenter;
+        this.passwordLabel.BackColor = Color.White;
         // 
         // LoginForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+        this.BackColor = Color.FromArgb(20, 21, 40);
         this.ClientSize = new Size(457, 411);
         this.Controls.Add(this.passwordLabel);
         this.Controls.Add(this.emailLabel);
         this.Controls.Add(this.registerButton);
-        this.Controls.Add(this.loginDebugLabel);
-        this.Controls.Add(this.passwordDebugLabel);
         this.Controls.Add(this.loginLabel);
         this.Controls.Add(this.loginButton);
         this.Controls.Add(this.passwordTextBox);
@@ -182,7 +162,6 @@ partial class LoginForm
         this.Name = "LoginForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "Login";
-        ((System.ComponentModel.ISupportInitialize)this.loginPictureBox).EndInit();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
@@ -193,8 +172,6 @@ partial class LoginForm
     private RoundedTextBox passwordTextBox;
     private Button loginButton;
     private Label loginLabel;
-    private Label passwordDebugLabel;
-    private Label loginDebugLabel;
     private Button registerButton;
     private Label emailLabel;
     private Label passwordLabel;

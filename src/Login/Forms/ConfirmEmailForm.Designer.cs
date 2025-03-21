@@ -34,7 +34,6 @@ partial class ConfirmEmailForm
         this.confirmEmailPictureBox = new PictureBox();
         this.verifyButton = new Button();
         this.confirmEmailLabel = new Label();
-        this.confirmEmailDebugLabel = new Label();
         this.returnButton = new Button();
         this.userCodeLabel = new Label();
         this.codeTextBox = new RoundedTextBox();
@@ -49,6 +48,7 @@ partial class ConfirmEmailForm
         this.confirmEmailPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         this.confirmEmailPictureBox.TabIndex = 3;
         this.confirmEmailPictureBox.TabStop = false;
+        this.confirmEmailPictureBox.BackColor = Color.White;
         // 
         // verifyButton
         // 
@@ -88,16 +88,6 @@ partial class ConfirmEmailForm
         this.confirmEmailLabel.TabIndex = 9;
         this.confirmEmailLabel.Text = "VERIFICAR E-MAIL";
         // 
-        // confirmEmailDebugLabel
-        // 
-        this.confirmEmailDebugLabel.AutoSize = true;
-        this.confirmEmailDebugLabel.Font = new Font("Barlow", 10F);
-        this.confirmEmailDebugLabel.Location = new Point(88, 330);
-        this.confirmEmailDebugLabel.Name = "confirmEmailDebugLabel";
-        this.confirmEmailDebugLabel.Size = new Size(0, 17);
-        this.confirmEmailDebugLabel.TabIndex = 16;
-        this.confirmEmailDebugLabel.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // returnButton
         // 
         this.returnButton.BackColor = SystemColors.Menu;
@@ -126,11 +116,10 @@ partial class ConfirmEmailForm
         // ConfirmEmailForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
+        this.BackColor = Color.FromArgb(20, 21, 40);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
         this.ClientSize = new Size(457, 411);
         this.Controls.Add(this.returnButton);
-        this.Controls.Add(this.confirmEmailDebugLabel);
         this.Controls.Add(this.userCodeLabel);
         this.Controls.Add(this.confirmEmailLabel);
         this.Controls.Add(this.verifyButton);
@@ -139,7 +128,6 @@ partial class ConfirmEmailForm
         this.Name = "ConfirmEmailForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "Confirmar E-mail";
-        ((System.ComponentModel.ISupportInitialize)this.confirmEmailPictureBox).EndInit();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
@@ -149,7 +137,6 @@ partial class ConfirmEmailForm
     private RoundedTextBox codeTextBox;
     private Button verifyButton;
     private Label confirmEmailLabel;
-    private Label confirmEmailDebugLabel;
     private Button returnButton;
     private Label userCodeLabel;
 }

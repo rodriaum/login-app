@@ -48,6 +48,7 @@ partial class PrivateAreaForm
         this.privateAreaPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         this.privateAreaPictureBox.TabIndex = 2;
         this.privateAreaPictureBox.TabStop = false;
+        this.privateAreaPictureBox.BackColor = Color.White;
         // 
         // usersCheckedListBox
         // 
@@ -88,6 +89,7 @@ partial class PrivateAreaForm
         this.userLabel.Size = new Size(149, 39);
         this.userLabel.TabIndex = 10;
         this.userLabel.Text = "USUÁRIOS";
+        this.userLabel.BackColor = Color.White;
         // 
         // infoLabel
         // 
@@ -99,13 +101,13 @@ partial class PrivateAreaForm
         this.infoLabel.Size = new Size(204, 15);
         this.infoLabel.TabIndex = 11;
         this.infoLabel.Text = "Clique 2x para alterar password do e-mail.";
+        this.infoLabel.BackColor = Color.White;
         // 
         // PrivateAreaForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-        this.ClientSize = new Size(457, 411);
+        this.BackColor = Color.FromArgb(20, 21, 40); this.ClientSize = new Size(457, 411);
         this.Controls.Add(this.infoLabel);
         this.Controls.Add(this.userLabel);
         this.Controls.Add(this.removeEmailsButton);
@@ -115,7 +117,6 @@ partial class PrivateAreaForm
         this.Name = "PrivateAreaForm";
         this.StartPosition = FormStartPosition.CenterScreen;
         this.Text = "PrivateAreaForm";
-        ((System.ComponentModel.ISupportInitialize)this.privateAreaPictureBox).EndInit();
         this.ResumeLayout(false);
         this.PerformLayout();
     }

@@ -1,21 +1,21 @@
 # Windows Forms Login
 
-Este projeto é um simples programa de login e registro criado em C#.
+Este projeto ï¿½ um simples programa de login e registro criado em C#.
 
-## Dependências
+## Dependï¿½ncias
 
 - MySql.Data.MySqlClient
 
 ## Funcionalidades
 
-- Conexão com banco de dados MySQL.
-- Verificação de campos de e-mail e senha.
-- Sistema de encriptação SHA256.
+- Conexï¿½o com banco de dados MySQL.
+- Verificaï¿½ï¿½o de campos de e-mail e senha.
+- Sistema de encriptaï¿½ï¿½o SHA256.
 
-## Encriptação SHA256
+## Encriptaï¿½ï¿½o SHA256
 
 ```csharp
-        public static string HashPassword(string password)
+        public static string SHA256(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
@@ -35,23 +35,14 @@ Este projeto é um simples programa de login e registro criado em C#.
 ## Imagens
 
 <p float="left">
-  <img src="https://imgur.com/OzuXU64.png" width="160" />
-  <img src="https://imgur.com/ZjC4pXE.png" width="160" /> 
-  <img src="https://imgur.com/AMRP4zs.png" width="160" />
-  <img src="https://imgur.com/GrB14cw.png" width="160" /> 
-  <img src="https://imgur.com/CjYIXzT.png" width="160" />
+  <img src="https://i.imgur.com/OHJRjXi.png" width="800" />
 </p>
 
 ## Uso
 
-Antes de tudo, é preciso criar as tabelas, e você pode usar um [programa]([https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file](https://github.com/rodriaum/SQLTaskApplication)) que eu fiz dedicado para esse projeto. Ao iniciar o programa, uma conexão com o banco de dados é iniciada. Quando o botão de login é clicado, o programa verifica se os campos de e-mail e senha estão preenchidos. Se estiverem, ele cria um login não verificado no banco de dados.
-Além da funcionalidade de login, o programa possui uma área de registro onde os novos usuários podem criar suas próprias contas, fornecendo suas credenciais de login.
-Na área privada, existe uma página para remover ou alterar a password de um e-mail a escolha registrado no banco de dados.
+Alï¿½m da funcionalidade de login, o programa possui uma ï¿½rea de registro onde os novos usuï¿½rios podem criar suas prï¿½prias contas, fornecendo suas credenciais de login.
+Na ï¿½rea privada, existe uma pï¿½gina para remover ou alterar a password de um e-mail a escolha registrado no banco de dados.
 
-## Contribuição
+## Licenï¿½a
 
-Contribuições são bem-vindas. Por favor, faça um fork do projeto e crie um pull request com suas alterações.
-
-## Licença
-
-Este projeto é licenciado sob a [MIT License](https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file).
+[MIT License](https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file).
