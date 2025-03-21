@@ -1,48 +1,40 @@
-# Windows Forms Login
+# Login App
 
-Este projeto � um simples programa de login e registro criado em C#.
-
-## Depend�ncias
+## Dependências
 
 - MySql.Data.MySqlClient
 
 ## Funcionalidades
 
-- Conex�o com banco de dados MySQL.
-- Verifica��o de campos de e-mail e senha.
-- Sistema de encripta��o SHA256.
+Além da funcionalidade de login e registro, o programa possui uma área de registro onde novos usuários podem criar suas próprias contas, fornecendo suas credenciais de login.
+Na área privada, existe uma página para remover ou alterar a senha de um e-mail registrado no banco de dados.
 
-## Encripta��o SHA256
+## Criptografia SHA256
 
 ```csharp
-        public static string SHA256(string password)
+public static string SHA256(string password)
+{
+    using (SHA256 sha256Hash = SHA256.Create())
+    {
+        byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < bytes.Length; i++)
         {
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-
-                return builder.ToString();
-            }
+            builder.Append(bytes[i].ToString("x2"));
         }
+
+        return builder.ToString();
+    }
+}
 ```
 
 ## Imagens
 
-<p float="left">
-  <img src="https://i.imgur.com/OHJRjXi.png" width="800" />
+<p float="center">
+  <img src="https://i.imgur.com/OHJRjXi.png" width="400" />
 </p>
 
-## Uso
-
-Al�m da funcionalidade de login, o programa possui uma �rea de registro onde os novos usu�rios podem criar suas pr�prias contas, fornecendo suas credenciais de login.
-Na �rea privada, existe uma p�gina para remover ou alterar a password de um e-mail a escolha registrado no banco de dados.
-
-## Licen�a
+## Licença
 
 [MIT License](https://github.com/rodriaum/Login?tab=MIT-1-ov-file#MIT-1-ov-file).
